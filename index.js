@@ -13,6 +13,7 @@ const notFoundHandler = require('./utils/middleware/notFoundHandler');
 
 // body parser
 app.use(express.json());
+
 //rutas
 moviesApi(app);
 
