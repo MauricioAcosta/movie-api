@@ -9,20 +9,21 @@ const {
   wrapErrors,
   errorHandler
 } = require('./utils/middleware/errorHandlers.js');
+
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
 
 // body parser
 app.use(express.json());
 
-//rutas
+// routes
 moviesApi(app);
 
-//capturar erro 404 siempre va al final de las rutas
+// Catch 404
 app.use(notFoundHandler);
 
-//Manejadores de errores
+// Errors middleware
 app.use(logErrors);
-app.use(wrapErrors)
+app.use(wrapErrors);
 app.use(errorHandler);
 
 app.listen(config.port, function() {
